@@ -27,7 +27,7 @@ const products = [
     price: 550,
     category: "Anestesia",
     desc: "Anestésico dental para uso profesional.",
-    image: anestesiaImageImage,
+    image: anestesiaImage,
   },
   {
     id: 4,
