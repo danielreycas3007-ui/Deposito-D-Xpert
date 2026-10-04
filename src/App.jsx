@@ -9,8 +9,7 @@ const products = [
     price: 450,
     category: "Restaurativa",
     desc: "Resina compuesta de alta estética y excelente durabilidad.",
-    image:
-      "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=700",
+    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=700",
   },
   {
     id: 2,
@@ -18,8 +17,7 @@ const products = [
     price: 680,
     category: "Adhesivos",
     desc: "Adhesivo fotopolimerizable de frasco único.",
-    image:
-      "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=700",
+    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=700",
   },
   {
     id: 3,
@@ -27,8 +25,7 @@ const products = [
     price: 550,
     category: "Anestesia",
     desc: "Anestésico dental para uso profesional.",
-    image:
-      "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=700",
+    image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=700",
   },
   {
     id: 4,
@@ -36,8 +33,7 @@ const products = [
     price: 98,
     category: "Anestesia",
     desc: "Producto para uso odontológico profesional.",
-    image:
-      "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&q=80&w=700",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=700",
   },
   {
     id: 5,
@@ -45,8 +41,7 @@ const products = [
     price: 214,
     category: "Anestesia",
     desc: "Producto odontológico para profesionales.",
-    image:
-      "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&q=80&w=700",
+    image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&q=80&w=700",
   },
   {
     id: 6,
@@ -54,8 +49,7 @@ const products = [
     price: 140,
     category: "Desechables",
     desc: "Caja con 100 piezas. Selecciona tu talla.",
-    image:
-      "https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&q=80&w=700",
+    image: "https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&q=80&w=700",
     sizes: ["XS", "X", "M"],
   },
   {
@@ -64,8 +58,7 @@ const products = [
     price: 70,
     category: "Desechables",
     desc: "Campos para uso profesional odontológico.",
-    image:
-      "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&q=80&w=700",
+    image: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&q=80&w=700",
   },
   {
     id: 8,
@@ -73,8 +66,7 @@ const products = [
     price: 52,
     category: "Desechables",
     desc: "Campos para procedimientos odontológicos.",
-    image:
-      "https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&q=80&w=700",
+    image: "https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&q=80&w=700",
   },
   {
     id: 9,
@@ -82,8 +74,7 @@ const products = [
     price: 90,
     category: "Desechables",
     desc: "Eyectores para uso odontológico.",
-    image:
-      "https://images.unsplash.com/photo-1606265752439-1f18756aa2a0?auto=format&fit=crop&q=80&w=700",
+    image: "https://images.unsplash.com/photo-1606265752439-1f18756aa2a0?auto=format&fit=crop&q=80&w=700",
   },
   {
     id: 10,
@@ -91,8 +82,7 @@ const products = [
     price: 100,
     category: "Desechables",
     desc: "Eyectores de uso profesional.",
-    image:
-      "https://images.unsplash.com/photo-1588776813677-77f0c5e4e5b0?auto=format&fit=crop&q=80&w=700",
+    image: "https://images.unsplash.com/photo-1588776813677-77f0c5e4e5b0?auto=format&fit=crop&q=80&w=700",
   },
   {
     id: 11,
@@ -100,8 +90,7 @@ const products = [
     price: 60,
     category: "Desechables",
     desc: "Eyectores desechables para clínica dental.",
-    image:
-      "https://images.unsplash.com/photo-1588776814546-daab30f310ce?auto=format&fit=crop&q=80&w=700",
+    image: "https://images.unsplash.com/photo-1588776814546-daab30f310ce?auto=format&fit=crop&q=80&w=700",
   },
   {
     id: 12,
@@ -109,8 +98,7 @@ const products = [
     price: 80,
     category: "Desechables",
     desc: "Eyectores azules para uso odontológico.",
-    image:
-      "https://images.unsplash.com/photo-1581585098991-5d8d4e8f8c1b?auto=format&fit=crop&q=80&w=700",
+    image: "https://images.unsplash.com/photo-1581585098991-5d8d4e8f8c1b?auto=format&fit=crop&q=80&w=700",
   },
   {
     id: 13,
@@ -118,8 +106,7 @@ const products = [
     price: 100,
     category: "Esterilización",
     desc: "Bolsas para esterilización de instrumental.",
-    image:
-      "https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&q=80&w=700",
+    image: "https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&q=80&w=700",
   },
   {
     id: 14,
@@ -127,8 +114,7 @@ const products = [
     price: 100,
     category: "Desechables",
     desc: "Cubrebocas para protección profesional.",
-    image:
-      "https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&q=80&w=700",
+    image: "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=700",
   },
   {
     id: 15,
@@ -136,8 +122,7 @@ const products = [
     price: 28,
     category: "Desechables",
     desc: "Gasas para procedimientos odontológicos.",
-    image:
-      "https://www.bing.com/images/search?view=detailV2&ccid=3buBJkP9&id=4729F7AE4430B162C92790057771441DF8ADB2AF&thid=OIP.3buBJkP9k-J0eYsfcP5r4QHaHU&mediaurl=https%3A%2F%2Fplus.odontologybg.com%2Fwp-content%2Fuploads%2F2025%2F11%2FUNI0224-Gasa-AbsorSeal-NE-5X5-Caja-Con-25-Piezas-200Tubo.png&cdnurl=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FR.ddbb812643fd93e274798b1f70fe6be1%3Frik%3Dr7Kt%252bB1EcXcFkA%26pid%3DImgRaw%26r%3D0&exph=1482&expw=1500&q=gasas+absorseal&FORM=IRPRST&ck=B1ACDDC529B95AA8FA48E489EDEB72AB&selectedIndex=0&itb=0&cw=1357&ch=601&ajaxhist=0&ajaxserp=0",
+    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=700",
   },
 ];
 
