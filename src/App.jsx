@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import logoImage from "./logo.png";
 import gasasImage from "./gasas.png";
+import anestesiaImage from "./anestesia.png";
 
 const products = [
   {
@@ -26,7 +27,7 @@ const products = [
     price: 550,
     category: "Anestesia",
     desc: "Anestésico dental para uso profesional.",
-    image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=700",
+    image: anestesiaImageImage,
   },
   {
     id: 4,
