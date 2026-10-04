@@ -26,7 +26,7 @@ const products = [
   {
     id: 3,
     name: "Anestesia FD",
-    price: 0,
+    price: 550,
     category: "Anestesia",
     desc: "Anestésico dental para uso profesional.",
     image:
@@ -37,7 +37,7 @@ const products = [
   {
     id: 4,
     name: "Topicaina",
-    price: 0,
+    price: 98,
     category: "Anestesia",
     desc: "Producto para uso odontológico profesional.",
     image:
@@ -48,7 +48,7 @@ const products = [
   {
     id: 5,
     name: "ZK-ina",
-    price: 0,
+    price: 214,
     category: "Anestesia",
     desc: "Producto odontológico para profesionales.",
     image:
@@ -59,7 +59,7 @@ const products = [
   {
     id: 6,
     name: "Guantes de Nitrilo",
-    price: 220,
+    price: 140,
     category: "Desechables",
     desc: "Caja con 100 piezas. Selecciona tu talla.",
     image:
@@ -70,7 +70,7 @@ const products = [
   {
     id: 7,
     name: "Campos Borgatta",
-    price: 0,
+    price: 70,
     category: "Desechables",
     desc: "Campos para uso profesional odontológico.",
     image:
@@ -81,7 +81,7 @@ const products = [
   {
     id: 8,
     name: "Campos Anelsam",
-    price: 0,
+    price: 52,
     category: "Desechables",
     desc: "Campos para procedimientos odontológicos.",
     image:
@@ -92,7 +92,7 @@ const products = [
   {
     id: 9,
     name: "Eyectores Uniseal",
-    price: 0,
+    price: 90,
     category: "Desechables",
     desc: "Eyectores para uso odontológico.",
     image:
@@ -103,7 +103,7 @@ const products = [
   {
     id: 10,
     name: "Eyectores Borgatta",
-    price: 0,
+    price: 100,
     category: "Desechables",
     desc: "Eyectores de uso profesional.",
     image:
@@ -114,7 +114,7 @@ const products = [
   {
     id: 11,
     name: "Eyectores Sencillos",
-    price: 0,
+    price: 60,
     category: "Desechables",
     desc: "Eyectores desechables para clínica dental.",
     image:
@@ -125,7 +125,7 @@ const products = [
   {
     id: 12,
     name: "Eyectores Azules",
-    price: 0,
+    price: 80,
     category: "Desechables",
     desc: "Eyectores azules para uso odontológico.",
     image:
@@ -136,7 +136,7 @@ const products = [
   {
     id: 13,
     name: "Bolsas para Esterilizar",
-    price: 0,
+    price: 100,
     category: "Esterilización",
     desc: "Bolsas para esterilización de instrumental.",
     image:
@@ -147,7 +147,7 @@ const products = [
   {
     id: 14,
     name: "Cubrebocas",
-    price: 0,
+    price: 100,
     category: "Desechables",
     desc: "Cubrebocas para protección profesional.",
     image:
@@ -158,7 +158,7 @@ const products = [
   {
     id: 15,
     name: "Gasas",
-    price: 0,
+    price: 28,
     category: "Desechables",
     desc: "Gasas para procedimientos odontológicos.",
     image:
