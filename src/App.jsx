@@ -162,7 +162,7 @@ const products = [
     category: "Desechables",
     desc: "Gasas para procedimientos odontológicos.",
     image:
-      "https://sl.bing.net/ixkXbNTHcQK",
+      "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=700",
     consultPrice: true,
   },
 ];
@@ -431,7 +431,7 @@ function App() {
               <div className="hero-content">
 
                 <span className="hero-label">
-                  DEPÓSITO DENTAL D-Xpert
+                  DEPÓSITO DENTAL PROFESIONAL
                 </span>
 
                 <h1>
@@ -1236,7 +1236,7 @@ function App() {
         />
 
         <p>
-        · Depósito Dental D-Xpert
+          D-Xpert · Depósito Dental Profesional
         </p>
 
         <span>
