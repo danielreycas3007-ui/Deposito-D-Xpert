@@ -1,321 +1,1256 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import "./App.css";
+import logoImage from "./logo.png";
 
-// Catálogo de productos de D-Xpert con imágenes y descripciones profesionales
-const initialProducts = [
-  { id: 1, name: 'Resina Fotopolimerizable A2', price: 450, category: 'Restaurativa', desc: 'Resina compuesta de alta estética y durabilidad.', image: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=400' },
-  { id: 2, name: 'Adhesivo Dentinario V Gen', price: 680, category: 'Adhesivos', desc: 'Adhesivo fotopolimerizable de frasco único.', image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=400' },
-  { id: 3, name: 'Clorhexidina al 2% Solución', price: 180, category: 'Endodoncia', desc: 'Agente irrigador y desinfectante cavitario.', image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=400' },
-  { id: 4, name: 'Caja de Guantes de Nitrilo (100 pzs)', price: 220, category: 'Descartables', desc: 'Guantes libres de látex, alta resistencia y sensibilidad.', image: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=400' },
-  { id: 5, name: 'Lámpara de Fotocurado LED Inalámbrica', price: 1950, category: 'Equipamiento', desc: 'Diseño ergonómico con alta potencia de polimerización.', image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=400' },
-  { id: 6, name: 'Alginato de Alta Precisión Cromat', price: 290, category: 'Ortodoncia', desc: 'Impresión dental de fraguado rápido y cambio de color.', image: 'https://images.unsplash.com/photo-1606811841689-23dfddce6395?auto=format&fit=crop&q=80&w=400' }
+const products = [
+  {
+    id: 1,
+    name: "Resina Fotopolimerizable A2",
+    price: 450,
+    category: "Restaurativa",
+    desc: "Resina compuesta de alta estética y excelente durabilidad.",
+    image:
+      "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=700",
+  },
+
+  {
+    id: 2,
+    name: "Adhesivo Dentinario V Gen",
+    price: 680,
+    category: "Adhesivos",
+    desc: "Adhesivo fotopolimerizable de frasco único.",
+    image:
+      "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=700",
+  },
+
+  {
+    id: 3,
+    name: "Anestesia FD",
+    price: 0,
+    category: "Anestesia",
+    desc: "Anestésico dental para uso profesional.",
+    image:
+      "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=700",
+    consultPrice: true,
+  },
+
+  {
+    id: 4,
+    name: "Topicaina",
+    price: 0,
+    category: "Anestesia",
+    desc: "Producto para uso odontológico profesional.",
+    image:
+      "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&q=80&w=700",
+    consultPrice: true,
+  },
+
+  {
+    id: 5,
+    name: "ZK-ina",
+    price: 0,
+    category: "Anestesia",
+    desc: "Producto odontológico para profesionales.",
+    image:
+      "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&q=80&w=700",
+    consultPrice: true,
+  },
+
+  {
+    id: 6,
+    name: "Guantes de Nitrilo",
+    price: 220,
+    category: "Desechables",
+    desc: "Caja con 100 piezas. Selecciona tu talla.",
+    image:
+      "https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&q=80&w=700",
+    sizes: ["XS", "X", "M"],
+  },
+
+  {
+    id: 7,
+    name: "Campos Borgatta",
+    price: 0,
+    category: "Desechables",
+    desc: "Campos para uso profesional odontológico.",
+    image:
+      "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&q=80&w=700",
+    consultPrice: true,
+  },
+
+  {
+    id: 8,
+    name: "Campos Anelsam",
+    price: 0,
+    category: "Desechables",
+    desc: "Campos para procedimientos odontológicos.",
+    image:
+      "https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&q=80&w=700",
+    consultPrice: true,
+  },
+
+  {
+    id: 9,
+    name: "Eyectores Uniseal",
+    price: 0,
+    category: "Desechables",
+    desc: "Eyectores para uso odontológico.",
+    image:
+      "https://images.unsplash.com/photo-1606265752439-1f18756aa2a0?auto=format&fit=crop&q=80&w=700",
+    consultPrice: true,
+  },
+
+  {
+    id: 10,
+    name: "Eyectores Borgatta",
+    price: 0,
+    category: "Desechables",
+    desc: "Eyectores de uso profesional.",
+    image:
+      "https://images.unsplash.com/photo-1588776813677-77f0c5e4e5b0?auto=format&fit=crop&q=80&w=700",
+    consultPrice: true,
+  },
+
+  {
+    id: 11,
+    name: "Eyectores Sencillos",
+    price: 0,
+    category: "Desechables",
+    desc: "Eyectores desechables para clínica dental.",
+    image:
+      "https://images.unsplash.com/photo-1588776814546-daab30f310ce?auto=format&fit=crop&q=80&w=700",
+    consultPrice: true,
+  },
+
+  {
+    id: 12,
+    name: "Eyectores Azules",
+    price: 0,
+    category: "Desechables",
+    desc: "Eyectores azules para uso odontológico.",
+    image:
+      "https://images.unsplash.com/photo-1581585098991-5d8d4e8f8c1b?auto=format&fit=crop&q=80&w=700",
+    consultPrice: true,
+  },
+
+  {
+    id: 13,
+    name: "Bolsas para Esterilizar",
+    price: 0,
+    category: "Esterilización",
+    desc: "Bolsas para esterilización de instrumental.",
+    image:
+      "https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&q=80&w=700",
+    consultPrice: true,
+  },
+
+  {
+    id: 14,
+    name: "Cubrebocas",
+    price: 0,
+    category: "Desechables",
+    desc: "Cubrebocas para protección profesional.",
+    image:
+      "https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&q=80&w=700",
+    consultPrice: true,
+  },
+
+  {
+    id: 15,
+    name: "Gasas",
+    price: 0,
+    category: "Desechables",
+    desc: "Gasas para procedimientos odontológicos.",
+    image:
+      "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=700",
+    consultPrice: true,
+  },
 ];
 
-export default function App() {
-  const [view, setView] = useState('shop'); // 'shop', 'cart', 'checkout', 'chat'
+function App() {
+  const [view, setView] = useState("shop");
+
   const [cart, setCart] = useState([]);
+
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const [selectedCategory, setSelectedCategory] = useState("Todos");
+
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const [selectedSize, setSelectedSize] = useState("");
+
   const [chatMessages, setChatMessages] = useState([
-    { sender: 'ai', text: '¡Hola! Soy el asistente virtual de D-Xpert. ¿En qué material, resina o equipo dental te puedo apoyar hoy?' }
+    {
+      sender: "ai",
+      text: "Hola, Doctor. Soy el asistente D-Xpert. Puedo ayudarle a encontrar insumos, consultar productos y orientarle con su pedido.",
+    },
   ]);
-  const [inputMessage, setInputMessage] = useState('');
-  const [searchTerm, setSearchTerm] = useState('');
 
-  // Funciones del carrito
-  const addToCart = (product) => {
-    setCart(prev => {
-      const existing = prev.find(item => item.id === product.id);
+  const [inputMessage, setInputMessage] = useState("");
+
+  const categories = [
+    "Todos",
+    "Restaurativa",
+    "Anestesia",
+    "Adhesivos",
+    "Desechables",
+    "Esterilización",
+  ];
+
+  // -----------------------------
+  // CARRITO
+  // -----------------------------
+
+  const addToCart = (product, size = null) => {
+    if (product.sizes && !size) {
+      setSelectedProduct(product);
+      setSelectedSize("");
+      return;
+    }
+
+    const cartId = size ? `${product.id}-${size}` : `${product.id}`;
+
+    setCart((prev) => {
+      const existing = prev.find((item) => item.cartId === cartId);
+
       if (existing) {
-        return prev.map(item => item.id === product.id ? { ...item, qty: item.qty + 1 } : item);
+        return prev.map((item) =>
+          item.cartId === cartId
+            ? { ...item, qty: item.qty + 1 }
+            : item
+        );
       }
-      return [...prev, { ...product, qty: 1 }];
+
+      return [
+        ...prev,
+        {
+          ...product,
+          qty: 1,
+          size,
+          cartId,
+        },
+      ];
     });
+
+    setSelectedProduct(null);
+    setSelectedSize("");
   };
 
-  const updateQty = (id, delta) => {
-    setCart(prev => prev.map(item => {
-      if (item.id === id) {
-        const newQty = item.qty + delta;
-        return newQty > 0 ? { ...item, qty: newQty } : null;
-      }
-      return item;
-    }).filter(Boolean));
+  const updateQty = (cartId, amount) => {
+    setCart((prev) =>
+      prev
+        .map((item) => {
+          if (item.cartId === cartId) {
+            const newQty = item.qty + amount;
+
+            if (newQty <= 0) return null;
+
+            return {
+              ...item,
+              qty: newQty,
+            };
+          }
+
+          return item;
+        })
+        .filter(Boolean)
+    );
   };
 
-  const totalCartItems = cart.reduce((sum, item) => sum + item.qty, 0);
-  const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-
-  // Asistente AI Inteligente
-  const handleSendMessage = (e) => {
-    e.preventDefault();
-    if (!inputMessage.trim()) return;
-
-    const userText = inputMessage;
-    const newMessages = [...chatMessages, { sender: 'user', text: userText }];
-    setChatMessages(newMessages);
-    setInputMessage('');
-
-    setTimeout(() => {
-      let aiReply = "Entiendo perfectamente doctor. Contamos con ese insumo en stock con envío inmediato a toda la zona metropolitana.";
-      const lower = userText.toLowerCase();
-      if (lower.includes('resina') || lower.includes('color')) {
-        aiReply = "Manejamos resinas estéticas en tonos A1, A2 y A3 de marcas líderes en el mercado con excelente pulido.";
-      } else if (lower.includes('pago') || lower.includes('tarjeta')) {
-        aiReply = "Aceptamos transferencias, pagos con tarjeta mediante terminal y Mercado Pago de forma segura.";
-      } else if (lower.includes('envio') || lower.includes('entrega')) {
-        aiReply = "Los pedidos se procesan de inmediato y se despachan para entrega rápida en su clínica.";
-      }
-
-      setChatMessages(prev => [...prev, { sender: 'ai', text: aiReply }]);
-    }, 800);
+  const removeItem = (cartId) => {
+    setCart((prev) =>
+      prev.filter((item) => item.cartId !== cartId)
+    );
   };
 
-  const filteredProducts = initialProducts.filter(p => 
-    p.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-    p.category.toLowerCase().includes(searchTerm.toLowerCase())
+  const totalItems = cart.reduce(
+    (total, item) => total + item.qty,
+    0
   );
 
-  return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#f8fafc', fontFamily: 'system-ui, -apple-system, sans-serif', color: '#1e293b' }}>
-      
-      {/* Barra de Navegación Superior Elegante */}
-      <header style={{ backgroundColor: '#ffffff', borderBottom: '1px solid #e2e8f0', position: 'sticky', top: 0, zIndex: 10, boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '1rem 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer' }} onClick={() => setView('shop')}>
-            <div style={{ backgroundColor: '#0ea5e9', color: '#fff', padding: '0.5rem 0.75rem', borderRadius: '8px', fontWeight: 'bold', fontSize: '1.25rem' }}>DX</div>
-            <div>
-              <h1 style={{ fontSize: '1.25rem', fontWeight: 'bold', margin: 0, color: '#0f172a' }}>D-Xpert</h1>
-              <p style={{ fontSize: '0.75rem', color: '#64748b', margin: 0 }}>Depósito Dental Inteligente</p>
-            </div>
-          </div>
+  const totalPrice = cart.reduce(
+    (total, item) =>
+      total + item.price * item.qty,
+    0
+  );
 
-          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-            <button 
-              onClick={() => setView('shop')}
-              style={{ background: view === 'shop' ? '#e0f2fe' : 'transparent', border: 'none', padding: '0.5rem 1rem', borderRadius: '6px', fontWeight: '500', cursor: 'pointer', color: view === 'shop' ? '#0369a1' : '#475569' }}>
-              Catálogo
-            </button>
-            <button 
-              onClick={() => setView('chat')}
-              style={{ background: view === 'chat' ? '#e0f2fe' : 'transparent', border: 'none', padding: '0.5rem 1rem', borderRadius: '6px', fontWeight: '500', cursor: 'pointer', color: view === 'chat' ? '#0369a1' : '#475569' }}>
-              🤖 Asistente IA
-            </button>
-            <button 
-              onClick={() => setView('cart')}
-              style={{ position: 'relative', backgroundColor: '#0ea5e9', color: '#fff', border: 'none', padding: '0.5rem 1rem', borderRadius: '6px', fontWeight: '600', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              🛒 Carrito {totalCartItems > 0 && <span style={{ backgroundColor: '#ef4444', borderRadius: '50%', padding: '0.1rem 0.5rem', fontSize: '0.75rem' }}>{totalCartItems}</span>}
-            </button>
-          </div>
+  // -----------------------------
+  // PRODUCTOS FILTRADOS
+  // -----------------------------
+
+  const filteredProducts = products.filter((product) => {
+    const matchesSearch =
+      product.name
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase()) ||
+      product.category
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase());
+
+    const matchesCategory =
+      selectedCategory === "Todos" ||
+      product.category === selectedCategory;
+
+    return matchesSearch && matchesCategory;
+  });
+
+  // -----------------------------
+  // ASISTENTE IA
+  // -----------------------------
+
+  const sendMessage = (e) => {
+    e.preventDefault();
+
+    if (!inputMessage.trim()) return;
+
+    const message = inputMessage;
+
+    setChatMessages((prev) => [
+      ...prev,
+      {
+        sender: "user",
+        text: message,
+      },
+    ]);
+
+    setInputMessage("");
+
+    setTimeout(() => {
+      const text = message.toLowerCase();
+
+      let response =
+        "Claro, Doctor. Puedo ayudarle a encontrar el producto que necesita dentro del catálogo D-Xpert.";
+
+      if (text.includes("guante")) {
+        response =
+          "Contamos con guantes de nitrilo en tallas XS, X y M. Puede seleccionar la talla directamente desde el producto.";
+      }
+
+      if (
+        text.includes("eyector") ||
+        text.includes("eyectores")
+      ) {
+        response =
+          "Tenemos eyectores Uniseal, Borgatta, sencillos y azules disponibles dentro de la categoría Desechables.";
+      }
+
+      if (
+        text.includes("anestesia") ||
+        text.includes("topicaina") ||
+        text.includes("zk")
+      ) {
+        response =
+          "Puede consultar nuestra sección de Anestesia, donde encontrará Anestesia FD, Topicaina y ZK-ina.";
+      }
+
+      if (
+        text.includes("pedido") ||
+        text.includes("comprar")
+      ) {
+        response =
+          "Agregue los productos al carrito y después seleccione 'Continuar pedido'. Ahí podrá indicar sus datos y dirección de entrega.";
+      }
+
+      setChatMessages((prev) => [
+        ...prev,
+        {
+          sender: "ai",
+          text: response,
+        },
+      ]);
+    }, 700);
+  };
+
+  return (
+    <div className="app">
+
+      {/* HEADER */}
+
+      <header className="header">
+
+        <div
+          className="logo-container"
+          onClick={() => setView("shop")}
+        >
+          <img
+            src={logoImage}
+            alt="D-Xpert"
+            className="logo"
+          />
         </div>
+
+        <nav className="nav">
+
+          <button
+            className={view === "shop" ? "nav-active" : ""}
+            onClick={() => setView("shop")}
+          >
+            Catálogo
+          </button>
+
+          <button
+            className={view === "chat" ? "nav-active" : ""}
+            onClick={() => setView("chat")}
+          >
+            ✨ Asistente
+          </button>
+
+          <button
+            className="cart-button"
+            onClick={() => setView("cart")}
+          >
+            🛒 Carrito
+
+            {totalItems > 0 && (
+              <span className="cart-counter">
+                {totalItems}
+              </span>
+            )}
+          </button>
+
+        </nav>
+
       </header>
 
-      {/* Contenido Principal */}
-      <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem' }}>
-        
-        {/* VISTA 1: TIENDA / CATÁLOGO */}
-        {view === 'shop' && (
-          <div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem', flexWrap: 'wrap', gap: '1rem' }}>
-              <div>
-                <h2 style={{ fontSize: '2rem', fontWeight: 'bold', margin: 0, color: '#0f172a' }}>Insumos y Materiales Dentales</h2>
-                <p style={{ color: '#64748b', margin: '0.25rem 0 0 0' }}>Calidad profesional garantizada para su clínica dental.</p>
-              </div>
-              <input 
-                type="text" 
-                placeholder="Buscar por insumo o categoría..." 
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                style={{ padding: '0.75rem 1rem', width: '300px', borderRadius: '8px', border: '1px solid #cbd5e1', outline: 'none', fontSize: '0.95rem' }}
-              />
-            </div>
+      {/* CONTENIDO */}
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' }}>
-              {filteredProducts.map(product => (
-                <div key={product.id} style={{ backgroundColor: '#fff', borderRadius: '12px', overflow: 'hidden', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)', display: 'flex', flexDirection: 'column' }}>
-                  <img src={product.image} alt={product.name} style={{ width: '100%', height: '180px', objectFit: 'cover' }} />
-                  <div style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
-                    <div>
-                      <span style={{ fontSize: '0.75rem', backgroundColor: '#f1f5f9', color: '#475569', padding: '0.25rem 0.5rem', borderRadius: '4px', fontWeight: '600' }}>{product.category}</span>
-                      <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', margin: '0.5rem 0 0.25rem 0', color: '#1e293b' }}>{product.name}</h3>
-                      <p style={{ fontSize: '0.85rem', color: '#64748b', margin: 0, lineHeight: '1.4' }}>{product.desc}</p>
-                    </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '1.25rem' }}>
-                      <span style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#0369a1' }}>${product.price} MXN</span>
-                      <button 
-                        onClick={() => addToCart(product)}
-                        style={{ backgroundColor: '#0ea5e9', color: '#fff', border: 'none', padding: '0.5rem 1rem', borderRadius: '6px', fontWeight: '600', cursor: 'pointer', transition: 'background 0.2s' }}>
-                        Agregar
-                      </button>
-                    </div>
-                  </div>
+      <main>
+
+        {/* ========================= */}
+        {/* TIENDA */}
+        {/* ========================= */}
+
+        {view === "shop" && (
+          <>
+
+            {/* HERO */}
+
+            <section className="hero">
+
+              <div className="hero-content">
+
+                <span className="hero-label">
+                  DEPÓSITO DENTAL PROFESIONAL
+                </span>
+
+                <h1>
+                  Todo lo que tu clínica necesita,
+                  <span> en un solo lugar.</span>
+                </h1>
+
+                <p>
+                  Insumos dentales seleccionados para
+                  profesionales que buscan calidad,
+                  confianza y servicio.
+                </p>
+
+                <div className="hero-search">
+
+                  <span>⌕</span>
+
+                  <input
+                    type="text"
+                    placeholder="¿Qué estás buscando, Doctor?"
+                    value={searchTerm}
+                    onChange={(e) =>
+                      setSearchTerm(e.target.value)
+                    }
+                  />
+
                 </div>
+
+              </div>
+
+            </section>
+
+            {/* CATEGORIAS */}
+
+            <section className="categories">
+
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  className={
+                    selectedCategory === category
+                      ? "category-active"
+                      : ""
+                  }
+                  onClick={() =>
+                    setSelectedCategory(category)
+                  }
+                >
+                  {category}
+                </button>
               ))}
-            </div>
-          </div>
+
+            </section>
+
+            {/* PRODUCTOS */}
+
+            <section className="catalog-section">
+
+              <div className="section-title">
+
+                <div>
+                  <span>CATÁLOGO D-XPERT</span>
+
+                  <h2>
+                    Insumos para profesionales
+                  </h2>
+                </div>
+
+                <p>
+                  {filteredProducts.length} productos
+                </p>
+
+              </div>
+
+              <div className="products-grid">
+
+                {filteredProducts.map((product) => (
+
+                  <article
+                    className="product-card"
+                    key={product.id}
+                  >
+
+                    <div className="product-image-container">
+
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="product-image"
+                      />
+
+                      <span className="product-category">
+                        {product.category}
+                      </span>
+
+                    </div>
+
+                    <div className="product-info">
+
+                      <h3>
+                        {product.name}
+                      </h3>
+
+                      <p>
+                        {product.desc}
+                      </p>
+
+                      {product.sizes && (
+                        <div className="size-preview">
+                          XS · X · M
+                        </div>
+                      )}
+
+                      <div className="product-bottom">
+
+                        <div>
+
+                          {product.consultPrice ? (
+                            <strong>
+                              Consultar
+                            </strong>
+                          ) : (
+                            <strong>
+                              $
+                              {product.price.toLocaleString(
+                                "es-MX"
+                              )}
+                              <small> MXN</small>
+                            </strong>
+                          )}
+
+                        </div>
+
+                        <button
+                          className="add-button"
+                          onClick={() =>
+                            addToCart(product)
+                          }
+                        >
+                          Agregar
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                  </article>
+
+                ))}
+
+              </div>
+
+            </section>
+
+          </>
         )}
 
-        {/* VISTA 2: CARRITO DE COMPRAS CON BOTONES DE RETORNO */}
-        {view === 'cart' && (
-          <div style={{ backgroundColor: '#fff', padding: '2rem', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '1rem' }}>
-              <h2 style={{ fontSize: '1.75rem', fontWeight: 'bold', margin: 0 }}>Tu Carrito de Insumos</h2>
-              <button 
-                onClick={() => setView('shop')}
-                style={{ backgroundColor: '#f1f5f9', border: '1px solid #cbd5e1', padding: '0.5rem 1rem', borderRadius: '6px', fontWeight: '600', cursor: 'pointer', color: '#334155' }}>
-                ← Seguir Comprando
+        {/* ========================= */}
+        {/* MODAL GUANTES */}
+        {/* ========================= */}
+
+        {selectedProduct && (
+
+          <div
+            className="modal-overlay"
+            onClick={() =>
+              setSelectedProduct(null)
+            }
+          >
+
+            <div
+              className="product-modal"
+              onClick={(e) =>
+                e.stopPropagation()
+              }
+            >
+
+              <button
+                className="modal-close"
+                onClick={() =>
+                  setSelectedProduct(null)
+                }
+              >
+                ×
               </button>
+
+              <img
+                src={selectedProduct.image}
+                alt={selectedProduct.name}
+              />
+
+              <div className="modal-info">
+
+                <span>
+                  {selectedProduct.category}
+                </span>
+
+                <h2>
+                  {selectedProduct.name}
+                </h2>
+
+                <p>
+                  {selectedProduct.desc}
+                </p>
+
+                <h4>
+                  Selecciona la talla
+                </h4>
+
+                <div className="sizes">
+
+                  {selectedProduct.sizes.map(
+                    (size) => (
+
+                      <button
+                        key={size}
+                        className={
+                          selectedSize === size
+                            ? "size-selected"
+                            : ""
+                        }
+                        onClick={() =>
+                          setSelectedSize(size)
+                        }
+                      >
+                        {size}
+                      </button>
+
+                    )
+                  )}
+
+                </div>
+
+                <div className="modal-price">
+                  $
+                  {selectedProduct.price.toLocaleString(
+                    "es-MX"
+                  )}
+                  MXN
+                </div>
+
+                <button
+                  className="modal-add"
+                  disabled={!selectedSize}
+                  onClick={() =>
+                    addToCart(
+                      selectedProduct,
+                      selectedSize
+                    )
+                  }
+                >
+                  🛒 Agregar al carrito
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        )}
+
+        {/* ========================= */}
+        {/* CARRITO */}
+        {/* ========================= */}
+
+        {view === "cart" && (
+
+          <section className="page-container">
+
+            <div className="page-header">
+
+              <div>
+                <span>D-XPERT</span>
+
+                <h1>
+                  Tu carrito
+                </h1>
+              </div>
+
+              <button
+                className="secondary-button"
+                onClick={() => setView("shop")}
+              >
+                ← Seguir comprando
+              </button>
+
             </div>
 
             {cart.length === 0 ? (
-              <div style={{ textAlign: 'center', padding: '3rem 0', color: '#64748b' }}>
-                <p style={{ fontSize: '1.2rem' }}>Tu carrito está vacío.</p>
-                <button 
-                  onClick={() => setView('shop')}
-                  style={{ marginTop: '1rem', backgroundColor: '#0ea5e9', color: '#fff', border: 'none', padding: '0.75rem 1.5rem', borderRadius: '8px', fontWeight: '600', cursor: 'pointer' }}>
-                  Ver Catálogo Dental
+
+              <div className="empty-cart">
+
+                <div className="empty-icon">
+                  🛒
+                </div>
+
+                <h2>
+                  Tu carrito está vacío
+                </h2>
+
+                <p>
+                  Agrega los insumos que necesitas
+                  para tu clínica.
+                </p>
+
+                <button
+                  className="primary-button"
+                  onClick={() => setView("shop")}
+                >
+                  Explorar catálogo
                 </button>
+
               </div>
+
             ) : (
-              <div>
-                {cart.map(item => (
-                  <div key={item.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 0', borderBottom: '1px solid #f1f5f9' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                      <img src={item.image} alt={item.name} style={{ width: '60px', height: '60px', objectFit: 'cover', borderRadius: '8px' }} />
-                      <div>
-                        <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: '600' }}>{item.name}</h4>
-                        <p style={{ margin: '0.25rem 0 0 0', fontSize: '0.85rem', color: '#64748b' }}>${item.price} MXN c/u</p>
-                      </div>
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', border: '1px solid #cbd5e1', borderRadius: '6px', overflow: 'hidden' }}>
-                        <button onClick={() => updateQty(item.id, -1)} style={{ padding: '0.25rem 0.75rem', background: '#f8fafc', border: 'none', cursor: 'pointer' }}>-</button>
-                        <span style={{ padding: '0 0.75rem', fontWeight: '600' }}>{item.qty}</span>
-                        <button onClick={() => updateQty(item.id, 1)} style={{ padding: '0.25rem 0.75rem', background: '#f8fafc', border: 'none', cursor: 'pointer' }}>+</button>
-                      </div>
-                      <span style={{ fontWeight: 'bold', width: '90px', textAlign: 'right' }}>${item.price * item.qty} MXN</span>
-                    </div>
-                  </div>
-                ))}
 
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '2rem', paddingTop: '1rem', borderTop: '2px solid #e2e8f0' }}>
-                  <button 
-                    onClick={() => setView('shop')}
-                    style={{ background: 'transparent', border: '1px solid #cbd5e1', color: '#475569', padding: '0.75rem 1.25rem', borderRadius: '8px', fontWeight: '600', cursor: 'pointer' }}>
-                    ← Regresar al Catálogo
+              <div className="cart-layout">
+
+                <div className="cart-products">
+
+                  {cart.map((item) => (
+
+                    <div
+                      className="cart-item"
+                      key={item.cartId}
+                    >
+
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                      />
+
+                      <div className="cart-item-info">
+
+                        <h3>
+                          {item.name}
+                        </h3>
+
+                        {item.size && (
+                          <span>
+                            Talla: {item.size}
+                          </span>
+                        )}
+
+                        <p>
+                          {item.consultPrice
+                            ? "Precio por confirmar"
+                            : `$${item.price} MXN c/u`}
+                        </p>
+
+                      </div>
+
+                      <div className="quantity">
+
+                        <button
+                          onClick={() =>
+                            updateQty(
+                              item.cartId,
+                              -1
+                            )
+                          }
+                        >
+                          −
+                        </button>
+
+                        <strong>
+                          {item.qty}
+                        </strong>
+
+                        <button
+                          onClick={() =>
+                            updateQty(
+                              item.cartId,
+                              1
+                            )
+                          }
+                        >
+                          +
+                        </button>
+
+                      </div>
+
+                      <strong className="item-total">
+
+                        {item.consultPrice
+                          ? "Consultar"
+                          : `$${(
+                              item.price *
+                              item.qty
+                            ).toLocaleString(
+                              "es-MX"
+                            )} MXN`}
+
+                      </strong>
+
+                      <button
+                        className="remove-button"
+                        onClick={() =>
+                          removeItem(item.cartId)
+                        }
+                      >
+                        ×
+                      </button>
+
+                    </div>
+
+                  ))}
+
+                </div>
+
+                <aside className="summary">
+
+                  <span>
+                    RESUMEN
+                  </span>
+
+                  <h2>
+                    Tu pedido
+                  </h2>
+
+                  <div className="summary-row">
+                    <span>
+                      Productos
+                    </span>
+
+                    <strong>
+                      {totalItems}
+                    </strong>
+                  </div>
+
+                  <div className="summary-row">
+                    <span>
+                      Subtotal
+                    </span>
+
+                    <strong>
+                      $
+                      {totalPrice.toLocaleString(
+                        "es-MX"
+                      )}{" "}
+                      MXN
+                    </strong>
+                  </div>
+
+                  <div className="summary-total">
+
+                    <span>
+                      Total
+                    </span>
+
+                    <strong>
+                      $
+                      {totalPrice.toLocaleString(
+                        "es-MX"
+                      )}{" "}
+                      MXN
+                    </strong>
+
+                  </div>
+
+                  <button
+                    className="checkout-button"
+                    onClick={() =>
+                      setView("checkout")
+                    }
+                  >
+                    Continuar pedido →
                   </button>
-                  <div style={{ textAlign: 'right' }}>
-                    <p style={{ fontSize: '1.25rem', margin: '0 0 1rem 0', fontWeight: 'bold' }}>Total a Pagar: <span style={{ color: '#0369a1' }}>${totalPrice} MXN</span></p>
-                    <button 
-                      onClick={() => setView('checkout')}
-                      style={{ backgroundColor: '#10b981', color: '#fff', border: 'none', padding: '0.75rem 2rem', borderRadius: '8px', fontWeight: 'bold', fontSize: '1rem', cursor: 'pointer' }}>
-                      Proceder al Pago →
-                    </button>
-                  </div>
-                </div>
+
+                </aside>
+
               </div>
+
             )}
-          </div>
+
+          </section>
+
         )}
 
-        {/* VISTA 3: CHECKOUT / PAGO */}
-        {view === 'checkout' && (
-          <div style={{ maxWidth: '600px', margin: '0 auto', backgroundColor: '#fff', padding: '2rem', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '1rem' }}>
-              <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', margin: 0 }}>Finalizar Pedido</h2>
-              <button 
-                onClick={() => setView('cart')}
-                style={{ background: '#f1f5f9', border: '1px solid #cbd5e1', padding: '0.5rem 1rem', borderRadius: '6px', fontWeight: '600', cursor: 'pointer', color: '#334155' }}>
-                ← Regresar al Carrito
-              </button>
-            </div>
+        {/* ========================= */}
+        {/* CHECKOUT */}
+        {/* ========================= */}
 
-            <form onSubmit={(e) => { e.preventDefault(); alert('¡Pedido registrado con éxito! Gracias por su compra en D-Xpert.'); setView('shop'); setCart([]); }} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <div>
-                <label style={{ display: 'block', fontWeight: '500', marginBottom: '0.5rem', fontSize: '0.9rem' }}>Nombre del Doctor / Clínica</label>
-                <input type="text" required placeholder="Dr. Juan Pérez / Clínica Sonrisas" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid #cbd5e1' }} />
-              </div>
-              <div>
-                <label style={{ display: 'block', fontWeight: '500', marginBottom: '0.5rem', fontSize: '0.9rem' }}>Dirección de Entrega</label>
-                <input type="text" required placeholder="Calle, Número, Colonia, C.P." style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid #cbd5e1' }} />
-              </div>
-              <div>
-                <label style={{ display: 'block', fontWeight: '500', marginBottom: '0.5rem', fontSize: '0.9rem' }}>Teléfono de Contacto</label>
-                <input type="tel" required placeholder="55 1234 5678" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid #cbd5e1' }} />
-              </div>
-              <div style={{ backgroundColor: '#f8fafc', padding: '1rem', borderRadius: '8px', margin: '0.5rem 0' }}>
-                <p style={{ margin: 0, fontWeight: 'bold' }}>Total a cubrir: ${totalPrice} MXN</p>
-                <p style={{ margin: '0.25rem 0 0 0', fontSize: '0.85rem', color: '#64748b' }}>Pago contra entrega / Terminal Mercado Pago / Transferencia</p>
-              </div>
-              <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
-                <button 
-                  type="button" 
-                  onClick={() => setView('cart')}
-                  style={{ flex: 1, backgroundColor: '#f1f5f9', color: '#334155', border: '1px solid #cbd5e1', padding: '0.75rem', borderRadius: '8px', fontWeight: '600', cursor: 'pointer' }}>
-                  Regresar
-                </button>
-                <button 
-                  type="submit" 
-                  style={{ flex: 2, backgroundColor: '#10b981', color: '#fff', border: 'none', padding: '0.75rem', borderRadius: '8px', fontWeight: 'bold', cursor: 'pointer' }}>
-                  Confirmar Pedido
-                </button>
-              </div>
-            </form>
-          </div>
-        )}
+        {view === "checkout" && (
 
-        {/* VISTA 4: ASISTENTE VIRTUAL IA */}
-        {view === 'chat' && (
-          <div style={{ maxWidth: '700px', margin: '0 auto', backgroundColor: '#fff', borderRadius: '12px', border: '1px solid #e2e8f0', overflow: 'hidden', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}>
-            <div style={{ backgroundColor: '#0ea5e9', color: '#fff', padding: '1rem 1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <div>
-                <h3 style={{ margin: 0, fontSize: '1.2rem' }}>Asistente Virtual D-Xpert (IA)</h3>
-                <p style={{ margin: 0, fontSize: '0.8rem', opacity: 0.9 }}>Soporte técnico y asesoría en insumos dentales</p>
-              </div>
-              <button 
-                onClick={() => setView('shop')}
-                style={{ backgroundColor: 'rgba(255,255,255,0.2)', border: 'none', color: '#fff', padding: '0.4rem 0.8rem', borderRadius: '6px', fontWeight: '600', cursor: 'pointer' }}>
-                Regresar al Catálogo
-              </button>
-            </div>
+          <section className="page-container">
 
-            <div style={{ height: '400px', padding: '1.5rem', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '1rem', backgroundColor: '#f8fafc' }}>
-              {chatMessages.map((msg, index) => (
-                <div key={index} style={{ alignSelf: msg.sender === 'user' ? 'flex-end' : 'flex-start', maxWidth: '80%' }}>
-                  <div style={{ 
-                    backgroundColor: msg.sender === 'user' ? '#0ea5e9' : '#ffffff', 
-                    color: msg.sender === 'user' ? '#ffffff' : '#1e293b', 
-                    padding: '0.75rem 1rem', 
-                    borderRadius: '12px', 
-                    border: msg.sender === 'ai' ? '1px solid #e2e8f0' : 'none',
-                    boxShadow: '0 1px 2px rgba(0,0,0,0.05)'
-                  }}>
-                    <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: '1.4' }}>{msg.text}</p>
-                  </div>
+            <div className="checkout">
+
+              <div className="page-header">
+
+                <div>
+                  <span>FINALIZAR PEDIDO</span>
+
+                  <h1>
+                    Datos de entrega
+                  </h1>
                 </div>
-              ))}
+
+              </div>
+
+              <form
+                className="checkout-form"
+                onSubmit={(e) => {
+                  e.preventDefault();
+
+                  alert(
+                    "Pedido registrado correctamente. Esta parte posteriormente se conectará a la base de datos y al sistema de pagos."
+                  );
+                }}
+              >
+
+                <div className="form-section">
+
+                  <h3>
+                    Información del doctor
+                  </h3>
+
+                  <div className="form-grid">
+
+                    <div className="form-group">
+
+                      <label>
+                        Nombre del doctor
+                      </label>
+
+                      <input
+                        required
+                        placeholder="Dr. Juan Pérez"
+                      />
+
+                    </div>
+
+                    <div className="form-group">
+
+                      <label>
+                        Clínica
+                      </label>
+
+                      <input
+                        required
+                        placeholder="Clínica Dental"
+                      />
+
+                    </div>
+
+                    <div className="form-group">
+
+                      <label>
+                        Teléfono
+                      </label>
+
+                      <input
+                        required
+                        type="tel"
+                        placeholder="55 1234 5678"
+                      />
+
+                    </div>
+
+                    <div className="form-group">
+
+                      <label>
+                        Correo electrónico
+                      </label>
+
+                      <input
+                        required
+                        type="email"
+                        placeholder="doctor@email.com"
+                      />
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div className="form-section">
+
+                  <h3>
+                    Dirección de entrega
+                  </h3>
+
+                  <div className="form-group">
+
+                    <label>
+                      Dirección completa
+                    </label>
+
+                    <input
+                      required
+                      placeholder="Calle, número, colonia..."
+                    />
+
+                  </div>
+
+                  <div className="form-grid">
+
+                    <div className="form-group">
+
+                      <label>
+                        Código postal
+                      </label>
+
+                      <input
+                        required
+                        placeholder="54770"
+                      />
+
+                    </div>
+
+                    <div className="form-group">
+
+                      <label>
+                        Referencias
+                      </label>
+
+                      <input
+                        placeholder="Entre calles..."
+                      />
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div className="form-section">
+
+                  <h3>
+                    Entrega
+                  </h3>
+
+                  <div className="form-grid">
+
+                    <div className="form-group">
+
+                      <label>
+                        Fecha solicitada
+                      </label>
+
+                      <input
+                        required
+                        type="date"
+                      />
+
+                    </div>
+
+                    <div className="form-group">
+
+                      <label>
+                        Horario preferente
+                      </label>
+
+                      <input
+                        required
+                        type="time"
+                      />
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div className="order-total">
+
+                  <span>
+                    Total del pedido
+                  </span>
+
+                  <strong>
+                    $
+                    {totalPrice.toLocaleString(
+                      "es-MX"
+                    )}{" "}
+                    MXN
+                  </strong>
+
+                </div>
+
+                <div className="checkout-actions">
+
+                  <button
+                    type="button"
+                    className="secondary-button"
+                    onClick={() =>
+                      setView("cart")
+                    }
+                  >
+                    ← Regresar
+                  </button>
+
+                  <button
+                    type="submit"
+                    className="checkout-button"
+                  >
+                    Confirmar pedido →
+                  </button>
+
+                </div>
+
+              </form>
+
             </div>
 
-            <form onSubmit={handleSendMessage} style={{ display: 'flex', padding: '1rem', backgroundColor: '#fff', borderTop: '1px solid #e2e8f0', gap: '0.75rem' }}>
-              <input 
-                type="text" 
-                placeholder="Pregunta sobre resinas, precios o métodos de pago..." 
-                value={inputMessage}
-                onChange={(e) => setInputMessage(e.target.value)}
-                style={{ flex: 1, padding: '0.75rem', borderRadius: '8px', border: '1px solid #cbd5e1', outline: 'none' }}
-              />
-              <button 
-                type="submit" 
-                style={{ backgroundColor: '#0ea5e9', color: '#fff', border: 'none', padding: '0.75rem 1.5rem', borderRadius: '8px', fontWeight: 'bold', cursor: 'pointer' }}>
-                Enviar
-              </button>
-            </form>
-          </div>
+          </section>
+
+        )}
+
+        {/* ========================= */}
+        {/* ASISTENTE */}
+        {/* ========================= */}
+
+        {view === "chat" && (
+
+          <section className="page-container">
+
+            <div className="ai-container">
+
+              <div className="ai-header">
+
+                <div className="ai-avatar">
+                  ✦
+                </div>
+
+                <div>
+                  <span>
+                    D-XPERT AI
+                  </span>
+
+                  <h2>
+                    Asistente dental
+                  </h2>
+
+                  <small>
+                    En línea
+                  </small>
+                </div>
+
+              </div>
+
+              <div className="chat-area">
+
+                {chatMessages.map(
+                  (message, index) => (
+
+                    <div
+                      key={index}
+                      className={
+                        message.sender === "user"
+                          ? "message user-message"
+                          : "message ai-message"
+                      }
+                    >
+                      {message.text}
+                    </div>
+
+                  )
+                )}
+
+              </div>
+
+              <form
+                className="chat-form"
+                onSubmit={sendMessage}
+              >
+
+                <input
+                  value={inputMessage}
+                  onChange={(e) =>
+                    setInputMessage(
+                      e.target.value
+                    )
+                  }
+                  placeholder="Escribe tu pregunta..."
+                />
+
+                <button>
+                  ↑
+                </button>
+
+              </form>
+
+            </div>
+
+          </section>
+
         )}
 
       </main>
 
-      {/* Pie de página */}
-      <footer style={{ textAlign: 'center', padding: '2rem', color: '#64748b', fontSize: '0.85rem', borderTop: '1px solid #e2e8f0', marginTop: '3rem' }}>
-        <p style={{ margin: 0 }}>© 2026 D-Xpert - Depósito Dental Profesional. Todos los derechos reservados.</p>
+      {/* FOOTER */}
+
+      <footer className="footer">
+
+        <img
+          src={logoImage}
+          alt="D-Xpert"
+        />
+
+        <p>
+          D-Xpert · Depósito Dental Profesional
+        </p>
+
+        <span>
+          Calidad · Confianza · Servicio
+        </span>
+
+        <small>
+          © 2026 D-Xpert. Todos los derechos reservados.
+        </small>
+
       </footer>
+
     </div>
   );
 }
+
+export default App;
