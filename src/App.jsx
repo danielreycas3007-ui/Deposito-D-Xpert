@@ -385,7 +385,7 @@ function App() {
               <div className="hero-content">
 
                 <span className="hero-label">
-                  DEPÓSITO DENTAL PROFESIONAL
+                  DEPÓSITO DENTAL
                 </span>
 
                 <h1>
@@ -1176,7 +1176,7 @@ function App() {
         />
 
         <p>
-          D-Xpert · Depósito Dental Profesional
+          D-Xpert · Depósito Dental 
         </p>
 
         <span>
