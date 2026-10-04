@@ -1,8 +1,21 @@
 import React, { useState } from "react";
 import "./App.css";
 import logoImage from "./logo.png";
-import gasasImage from "./gasas.png";
+
+// Importación de todas las imágenes reales desde la carpeta src
 import anestesiaImage from "./anestesia.png";
+import bolsaParaEsterilizarImage from "./bolsa para esterilizar.png";
+import camposanelsamImage from "./camposanelsam.png";
+import camposborgattaImage from "./camposborgatta.png";
+import cubrebocasUnimaskImage from "./cubrebocas unimask.png";
+import eyectoresAzulesImage from "./eyectores azules.png";
+import eyectoresBorgattaImage from "./eyectores borgatta.png";
+import eyectoresSencillosImage from "./eyectores sencillos.png";
+import eyectoresUnisealImage from "./eyectoresuniseal.png";
+import gasasImage from "./gasas.png";
+import guantesDeNitriloImage from "./guantes de nitrilo.png";
+import topicainaImage from "./topicaina.png";
+import zkInaImage from "./ZK-ina.png";
 
 const products = [
   {
@@ -35,7 +48,7 @@ const products = [
     price: 98,
     category: "Anestesia",
     desc: "Producto para uso odontológico profesional.",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=700",
+    image: topicainaImage,
   },
   {
     id: 5,
@@ -43,7 +56,7 @@ const products = [
     price: 214,
     category: "Anestesia",
     desc: "Producto odontológico para profesionales.",
-    image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&q=80&w=700",
+    image: zkInaImage,
   },
   {
     id: 6,
@@ -51,7 +64,7 @@ const products = [
     price: 140,
     category: "Desechables",
     desc: "Caja con 100 piezas. Selecciona tu talla.",
-    image: "https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&q=80&w=700",
+    image: guantesDeNitriloImage,
     sizes: ["XS", "X", "M"],
   },
   {
@@ -60,7 +73,7 @@ const products = [
     price: 70,
     category: "Desechables",
     desc: "Campos para uso profesional odontológico.",
-    image: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&q=80&w=700",
+    image: camposborgattaImage,
   },
   {
     id: 8,
@@ -68,7 +81,7 @@ const products = [
     price: 52,
     category: "Desechables",
     desc: "Campos para procedimientos odontológicos.",
-    image: "https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&q=80&w=700",
+    image: camposanelsamImage,
   },
   {
     id: 9,
@@ -76,7 +89,7 @@ const products = [
     price: 90,
     category: "Desechables",
     desc: "Eyectores para uso odontológico.",
-    image: "https://images.unsplash.com/photo-1606265752439-1f18756aa2a0?auto=format&fit=crop&q=80&w=700",
+    image: eyectoresUnisealImage,
   },
   {
     id: 10,
@@ -84,7 +97,7 @@ const products = [
     price: 100,
     category: "Desechables",
     desc: "Eyectores de uso profesional.",
-    image: "https://images.unsplash.com/photo-1588776813677-77f0c5e4e5b0?auto=format&fit=crop&q=80&w=700",
+    image: eyectoresBorgattaImage,
   },
   {
     id: 11,
@@ -92,7 +105,7 @@ const products = [
     price: 60,
     category: "Desechables",
     desc: "Eyectores desechables para clínica dental.",
-    image: "https://images.unsplash.com/photo-1588776814546-daab30f310ce?auto=format&fit=crop&q=80&w=700",
+    image: eyectoresSencillosImage,
   },
   {
     id: 12,
@@ -100,7 +113,7 @@ const products = [
     price: 80,
     category: "Desechables",
     desc: "Eyectores azules para uso odontológico.",
-    image: "https://images.unsplash.com/photo-1581585098991-5d8d4e8f8c1b?auto=format&fit=crop&q=80&w=700",
+    image: eyectoresAzulesImage,
   },
   {
     id: 13,
@@ -108,7 +121,7 @@ const products = [
     price: 100,
     category: "Esterilización",
     desc: "Bolsas para esterilización de instrumental.",
-    image: "https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&q=80&w=700",
+    image: bolsaParaEsterilizarImage,
   },
   {
     id: 14,
@@ -116,7 +129,7 @@ const products = [
     price: 100,
     category: "Desechables",
     desc: "Cubrebocas para protección profesional.",
-    image: "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=700",
+    image: cubrebocasUnimaskImage,
   },
   {
     id: 15,
@@ -385,7 +398,7 @@ function App() {
               <div className="hero-content">
 
                 <span className="hero-label">
-                  DEPÓSITO DENTAL
+                  DEPÓSITO DENTAL PROFESIONAL
                 </span>
 
                 <h1>
@@ -1176,7 +1189,7 @@ function App() {
         />
 
         <p>
-          D-Xpert · Depósito Dental 
+          D-Xpert · Depósito Dental Profesional
         </p>
 
         <span>
