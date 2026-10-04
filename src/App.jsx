@@ -12,7 +12,6 @@ const products = [
     image:
       "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=700",
   },
-
   {
     id: 2,
     name: "Adhesivo Dentinario V Gen",
@@ -22,7 +21,6 @@ const products = [
     image:
       "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=700",
   },
-
   {
     id: 3,
     name: "Anestesia FD",
@@ -31,9 +29,7 @@ const products = [
     desc: "Anestésico dental para uso profesional.",
     image:
       "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=700",
-    consultPrice: true,
   },
-
   {
     id: 4,
     name: "Topicaina",
@@ -42,9 +38,7 @@ const products = [
     desc: "Producto para uso odontológico profesional.",
     image:
       "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&q=80&w=700",
-    consultPrice: true,
   },
-
   {
     id: 5,
     name: "ZK-ina",
@@ -53,9 +47,7 @@ const products = [
     desc: "Producto odontológico para profesionales.",
     image:
       "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&q=80&w=700",
-    consultPrice: true,
   },
-
   {
     id: 6,
     name: "Guantes de Nitrilo",
@@ -66,7 +58,6 @@ const products = [
       "https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&q=80&w=700",
     sizes: ["XS", "X", "M"],
   },
-
   {
     id: 7,
     name: "Campos Borgatta",
@@ -75,9 +66,7 @@ const products = [
     desc: "Campos para uso profesional odontológico.",
     image:
       "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&q=80&w=700",
-    consultPrice: true,
   },
-
   {
     id: 8,
     name: "Campos Anelsam",
@@ -86,9 +75,7 @@ const products = [
     desc: "Campos para procedimientos odontológicos.",
     image:
       "https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&q=80&w=700",
-    consultPrice: true,
   },
-
   {
     id: 9,
     name: "Eyectores Uniseal",
@@ -97,9 +84,7 @@ const products = [
     desc: "Eyectores para uso odontológico.",
     image:
       "https://images.unsplash.com/photo-1606265752439-1f18756aa2a0?auto=format&fit=crop&q=80&w=700",
-    consultPrice: true,
   },
-
   {
     id: 10,
     name: "Eyectores Borgatta",
@@ -108,9 +93,7 @@ const products = [
     desc: "Eyectores de uso profesional.",
     image:
       "https://images.unsplash.com/photo-1588776813677-77f0c5e4e5b0?auto=format&fit=crop&q=80&w=700",
-    consultPrice: true,
   },
-
   {
     id: 11,
     name: "Eyectores Sencillos",
@@ -119,9 +102,7 @@ const products = [
     desc: "Eyectores desechables para clínica dental.",
     image:
       "https://images.unsplash.com/photo-1588776814546-daab30f310ce?auto=format&fit=crop&q=80&w=700",
-    consultPrice: true,
   },
-
   {
     id: 12,
     name: "Eyectores Azules",
@@ -130,9 +111,7 @@ const products = [
     desc: "Eyectores azules para uso odontológico.",
     image:
       "https://images.unsplash.com/photo-1581585098991-5d8d4e8f8c1b?auto=format&fit=crop&q=80&w=700",
-    consultPrice: true,
   },
-
   {
     id: 13,
     name: "Bolsas para Esterilizar",
@@ -141,20 +120,16 @@ const products = [
     desc: "Bolsas para esterilización de instrumental.",
     image:
       "https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&q=80&w=700",
-    consultPrice: true,
   },
-
   {
     id: 14,
-    name: "Cubrebocas",
+    name: "Cubrebocas Unimask",
     price: 100,
     category: "Desechables",
     desc: "Cubrebocas para protección profesional.",
     image:
       "https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&q=80&w=700",
-    consultPrice: true,
   },
-
   {
     id: 15,
     name: "Gasas",
@@ -163,30 +138,22 @@ const products = [
     desc: "Gasas para procedimientos odontológicos.",
     image:
       "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=700",
-    consultPrice: true,
   },
 ];
 
 function App() {
   const [view, setView] = useState("shop");
-
   const [cart, setCart] = useState([]);
-
   const [searchTerm, setSearchTerm] = useState("");
-
   const [selectedCategory, setSelectedCategory] = useState("Todos");
-
   const [selectedProduct, setSelectedProduct] = useState(null);
-
   const [selectedSize, setSelectedSize] = useState("");
-
   const [chatMessages, setChatMessages] = useState([
     {
       sender: "ai",
       text: "Hola, Doctor. Soy el asistente D-Xpert. Puedo ayudarle a encontrar insumos, consultar productos y orientarle con su pedido.",
     },
   ]);
-
   const [inputMessage, setInputMessage] = useState("");
 
   const categories = [
@@ -324,7 +291,7 @@ function App() {
 
       if (text.includes("guante")) {
         response =
-          "Contamos con guantes de nitrilo en tallas XS, X y M. Puede seleccionar la talla directamente desde el producto.";
+          "Contamos con guantes de nitrilo en tallas XS, X y M a $140 MXN. Puede seleccionar la talla directamente desde el producto.";
       }
 
       if (
@@ -332,7 +299,7 @@ function App() {
         text.includes("eyectores")
       ) {
         response =
-          "Tenemos eyectores Uniseal, Borgatta, sencillos y azules disponibles dentro de la categoría Desechables.";
+          "Tenemos eyectores Uniseal ($90), Borgatta ($100), sencillos ($60) y azules ($80) disponibles.";
       }
 
       if (
@@ -341,7 +308,7 @@ function App() {
         text.includes("zk")
       ) {
         response =
-          "Puede consultar nuestra sección de Anestesia, donde encontrará Anestesia FD, Topicaina y ZK-ina.";
+          "Encontrará Anestesia FD ($550), Topicaina ($98) y ZK-ina ($214) en nuestra sección de Anestesia.";
       }
 
       if (
@@ -548,21 +515,13 @@ function App() {
                       <div className="product-bottom">
 
                         <div>
-
-                          {product.consultPrice ? (
-                            <strong>
-                              Consultar
-                            </strong>
-                          ) : (
-                            <strong>
-                              $
-                              {product.price.toLocaleString(
-                                "es-MX"
-                              )}
-                              <small> MXN</small>
-                            </strong>
-                          )}
-
+                          <strong>
+                            $
+                            {product.price.toLocaleString(
+                              "es-MX"
+                            )}
+                            <small> MXN</small>
+                          </strong>
                         </div>
 
                         <button
@@ -778,9 +737,7 @@ function App() {
                         )}
 
                         <p>
-                          {item.consultPrice
-                            ? "Precio por confirmar"
-                            : `$${item.price} MXN c/u`}
+                          ${item.price} MXN c/u
                         </p>
 
                       </div>
@@ -816,16 +773,12 @@ function App() {
                       </div>
 
                       <strong className="item-total">
-
-                        {item.consultPrice
-                          ? "Consultar"
-                          : `$${(
-                              item.price *
-                              item.qty
-                            ).toLocaleString(
-                              "es-MX"
-                            )} MXN`}
-
+                        ${(
+                          item.price *
+                          item.qty
+                        ).toLocaleString(
+                          "es-MX"
+                        )} MXN
                       </strong>
 
                       <button
