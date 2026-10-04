@@ -137,7 +137,7 @@ const products = [
     category: "Desechables",
     desc: "Gasas para procedimientos odontológicos.",
     image:
-      "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=700",
+      "https://www.bing.com/images/search?view=detailV2&ccid=3buBJkP9&id=4729F7AE4430B162C92790057771441DF8ADB2AF&thid=OIP.3buBJkP9k-J0eYsfcP5r4QHaHU&mediaurl=https%3A%2F%2Fplus.odontologybg.com%2Fwp-content%2Fuploads%2F2025%2F11%2FUNI0224-Gasa-AbsorSeal-NE-5X5-Caja-Con-25-Piezas-200Tubo.png&cdnurl=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FR.ddbb812643fd93e274798b1f70fe6be1%3Frik%3Dr7Kt%252bB1EcXcFkA%26pid%3DImgRaw%26r%3D0&exph=1482&expw=1500&q=gasas+absorseal&FORM=IRPRST&ck=B1ACDDC529B95AA8FA48E489EDEB72AB&selectedIndex=0&itb=0&cw=1357&ch=601&ajaxhist=0&ajaxserp=0",
   },
 ];
 
