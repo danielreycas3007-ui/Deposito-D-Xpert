@@ -1244,7 +1244,7 @@ function App() {
         </span>
 
         <small>
-          © 2026 D-Xpert. Todos los derechos reservados.
+          ©️ 2026 D-Xpert. Todos los derechos reservados.
         </small>
 
       </footer>
