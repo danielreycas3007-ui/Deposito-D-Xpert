@@ -2,12 +2,40 @@ import React, { useState } from "react";
 import "./App.css";
 import logoImage from "./logo.png";
 
-// Importación de tus imágenes reales guardadas en la carpeta src
+// Importación de todas las imágenes reales desde la carpeta src
+import acetatoRigido080Image from "./Acetato rigido .080.png";
+import acidoGrabadorImage from "./acido grabador.png";
+import adhesivoSingleBondImage from "./Adhesivo single bond.png";
+import agujaCortaImage from "./Aguja corta.png";
+import agujaExtraCortaImage from "./Aguja extra corta.png";
+import alginoplastImage from "./Alginoplast.png";
 import anestesiaImage from "./anestesia.png";
+import antibenzilImage from "./Antibenzil 3.750.png";
+import arcoStripingImage from "./Arco striping.png";
+import biogelImage from "./Biogel.png";
+import blancoDeEspanaImage from "./Blanco de españa.png";
 import bolsaParaEsterilizarImage from "./bolsa para esterilizar.png";
+import cadenaLongImage from "./Cadena long.png";
+import cajaOrthoPlasticoAnelsamImage from "./caja ortho plastico anelsam.png";
+import cajaOrthoPlasticoItalyImage from "./caja ortho plastico Italy.png";
 import camposanelsamImage from "./camposanelsam.png";
 import camposborgattaImage from "./camposborgatta.png";
+import cavexCa37Image from "./Cavex CA37.png";
+import cepilloOralBImage from "./Cepillo Oral B.png";
+import ceraDeOrtodonciaImage from "./Cera de ortodoncia.png";
+import ceraParaModelarImage from "./Cera para modelar.png";
+import charolaDePlasticoImage from "./charola de plastico.png";
+import cintaTestigoImage from "./cinta testigo.png";
+import clinproImage from "./clinpro.png";
+import conformadorDeRodilloImage from "./conformador de rodillo.png";
+import coronasAnterioresImage from "./Coronas anteriores.png";
+import cubrebocasAnelsamImage from "./cubrebocas anelsam.png";
 import cubrebocasUnimaskImage from "./cubrebocas unimask.png";
+import cucharillasParcialesImage from "./Cucharillas parciales.png";
+import detectorDeCariesImage from "./detector de caries.png";
+import diqueMaxsafe5x5VerdeImage from "./dique maxsafe 5x5 verde.png";
+import diqueMaxsafe6x6RosaImage from "./dique maxsafe 6x6 rosa.png";
+import diqueNictone5x5Image from "./dique nictone 5x5.png";
 import eyectoresAzulesImage from "./eyectores azules.png";
 import eyectoresBorgattaImage from "./eyectores borgatta.png";
 import eyectoresSencillosImage from "./eyectores sencillos.png";
@@ -18,44 +46,43 @@ import topicainaImage from "./topicaina.png";
 import zkInaImage from "./ZK-ina.png";
 
 const products = [
-  // --- PRODUCTOS DESDE TU EXCEL ---
   { id: 1, name: "Abre bocas con 3 pzas", price: 35, category: "Instrumental", desc: "Abre bocas para procedimientos clínicos.", image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=700" },
   { id: 2, name: "Acentador de bandas Arain", price: 70, category: "Instrumental", desc: "Instrumental de alta calidad para ortodoncia.", image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=700" },
-  { id: 3, name: "Acetato rigido .080", price: 22, category: "Laboratorio", desc: "Acetato rígido para férulas.", image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=700" },
-  { id: 4, name: "Acetato rigido .060", price: 18, category: "Laboratorio", desc: "Acetato para trabajos de laboratorio dental.", image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=700" },
-  { id: 5, name: "Ácido grabador", price: 58, category: "Restaurativa", desc: "Ácido grabador dental profesional.", image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&q=80&w=700" },
-  { id: 6, name: "Adhesivo Single Bon", price: 955, category: "Adhesivos", desc: "Adhesivo dental de alta fuerza de unión.", image: "https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&q=80&w=700" },
-  { id: 7, name: "Aguja corta", price: 130, category: "Anestesia", desc: "Agujas dentales esterilizadas.", image: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&q=80&w=700" },
-  { id: 8, name: "Aguja extra corta", price: 130, category: "Anestesia", desc: "Agujas dentales para anestesia local.", image: "https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&q=80&w=700" },
-  { id: 9, name: "Alginoplast", price: 216, category: "Impresión", desc: "Alginato de alta precisión.", image: "https://images.unsplash.com/photo-1606265752439-1f18756aa2a0?auto=format&fit=crop&q=80&w=700" },
-  { id: 10, name: "Antibenzil 3.750", price: 90, category: "Anestesia", desc: "Anestésico tópico profesional.", image: "https://images.unsplash.com/photo-1588776813677-77f0c5e4e5b0?auto=format&fit=crop&q=80&w=700" },
-  { id: 11, name: "Arco Striping", price: 55, category: "Ortodoncia", desc: "Arco para tiras de stripping.", image: "https://images.unsplash.com/photo-1588776814546-daab30f310ce?auto=format&fit=crop&q=80&w=700" },
-  { id: 12, name: "Biogel", price: 98, category: "Desechables", desc: "Gel protector y lubricante dental.", image: "https://images.unsplash.com/photo-1581585098991-5d8d4e8f8c1b?auto=format&fit=crop&q=80&w=700" },
-  { id: 13, name: "Blanco de España", price: 36, category: "Laboratorio", desc: "Material para pulido y laboratorio.", image: "https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&q=80&w=700" },
+  { id: 3, name: "Acetato rigido .080", price: 22, category: "Laboratorio", desc: "Acetato rígido para férulas.", image: acetatoRigido080Image },
+  { id: 4, name: "Acetato rigido .060", price: 18, category: "Laboratorio", desc: "Acetato para trabajos de laboratorio dental.", image: acetatoRigido080Image },
+  { id: 5, name: "Ácido grabador", price: 58, category: "Restaurativa", desc: "Ácido grabador dental profesional.", image: acidoGrabadorImage },
+  { id: 6, name: "Adhesivo Single Bon", price: 955, category: "Adhesivos", desc: "Adhesivo dental de alta fuerza de unión.", image: adhesivoSingleBondImage },
+  { id: 7, name: "Aguja corta", price: 130, category: "Anestesia", desc: "Agujas dentales esterilizadas.", image: agujaCortaImage },
+  { id: 8, name: "Aguja extra corta", price: 130, category: "Anestesia", desc: "Agujas dentales para anestesia local.", image: agujaExtraCortaImage },
+  { id: 9, name: "Alginoplast", price: 216, category: "Impresión", desc: "Alginato de alta precisión.", image: alginoplastImage },
+  { id: 10, name: "Antibenzil 3.750", price: 90, category: "Anestesia", desc: "Anestésico tópico profesional.", image: antibenzilImage },
+  { id: 11, name: "Arco Striping", price: 55, category: "Ortodoncia", desc: "Arco para tiras de stripping.", image: arcoStripingImage },
+  { id: 12, name: "Biogel", price: 98, category: "Desechables", desc: "Gel protector y lubricante dental.", image: biogelImage },
+  { id: 13, name: "Blanco de España", price: 36, category: "Laboratorio", desc: "Material para pulido y laboratorio.", image: blancoDeEspanaImage },
   { id: 14, name: "Bolsa para esterilizar 2 1/4", price: 60, category: "Esterilización", desc: "Bolsas grado médico para esterilización.", image: bolsaParaEsterilizarImage },
   { id: 15, name: "Bolsa para esterilizar 3 1/2", price: 138, category: "Esterilización", desc: "Bolsas de esterilización tamaño grande.", image: bolsaParaEsterilizarImage },
-  { id: 16, name: "Cadena long", price: 340, category: "Ortodoncia", desc: "Cadena elástica para ortodoncia.", image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=700" },
-  { id: 17, name: "Caja ortho plastico Anelsam", price: 10, category: "Ortodoncia", desc: "Caja para aparatos de ortodoncia.", image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=700" },
-  { id: 18, name: "Caja ortho plastico Italy", price: 12, category: "Ortodoncia", desc: "Caja protectora para retenedores.", image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=700" },
+  { id: 16, name: "Cadena long", price: 340, category: "Ortodoncia", desc: "Cadena elástica para ortodoncia.", image: cadenaLongImage },
+  { id: 17, name: "Caja ortho plastico Anelsam", price: 10, category: "Ortodoncia", desc: "Caja para aparatos de ortodoncia.", image: cajaOrthoPlasticoAnelsamImage },
+  { id: 18, name: "Caja ortho plastico Italy", price: 12, category: "Ortodoncia", desc: "Caja protectora para retenedores.", image: cajaOrthoPlasticoItalyImage },
   { id: 19, name: "Campos Anelsam", price: 52, category: "Desechables", desc: "Campos dentales desechables.", image: camposanelsamImage },
   { id: 20, name: "Campos Borgatta", price: 68, category: "Desechables", desc: "Campos para uso profesional.", image: camposborgattaImage },
-  { id: 21, name: "Cavex CA37", price: 182, category: "Impresión", desc: "Alginato elástico de gran precisión.", image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=700" },
-  { id: 22, name: "Cepillo Oral B", price: 25, category: "Higiene", desc: "Cepillo dental para pacientes.", image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&q=80&w=700" },
-  { id: 23, name: "Cera de ortodoncia", price: 14, category: "Ortodoncia", desc: "Cera de alivio para brackets.", image: "https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&q=80&w=700" },
-  { id: 24, name: "Cera para modelar", price: 69, category: "Laboratorio", desc: "Cera para trabajos de laboratorio.", image: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&q=80&w=700" },
-  { id: 25, name: "Charola de plastico", price: 37, category: "Instrumental", desc: "Charola organizadora para instrumental.", image: "https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&q=80&w=700" },
-  { id: 26, name: "Cinta testigo", price: 75, category: "Esterilización", desc: "Cinta autoclave indicador de esterilización.", image: "https://images.unsplash.com/photo-1606265752439-1f18756aa2a0?auto=format&fit=crop&q=80&w=700" },
-  { id: 27, name: "Clinpro", price: 58, category: "Preventiva", desc: "Barniz fluorado profesional.", image: "https://images.unsplash.com/photo-1588776813677-77f0c5e4e5b0?auto=format&fit=crop&q=80&w=700" },
-  { id: 28, name: "Conformador de rodillo", price: 14, category: "Laboratorio", desc: "Conformador para rodetes de cera.", image: "https://images.unsplash.com/photo-1588776814546-daab30f310ce?auto=format&fit=crop&q=80&w=700" },
-  { id: 29, name: "Coronas anteriores", price: 84, category: "Restaurativa", desc: "Coronas temporales anteriores.", image: "https://images.unsplash.com/photo-1581585098991-5d8d4e8f8c1b?auto=format&fit=crop&q=80&w=700" },
-  { id: 30, name: "Cubrebocas Anelsam", price: 58, category: "Desechables", desc: "Cubrebocas plisado tricapa.", image: "https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&q=80&w=700" },
+  { id: 21, name: "Cavex CA37", price: 182, category: "Impresión", desc: "Alginato elástico de gran precisión.", image: cavexCa37Image },
+  { id: 22, name: "Cepillo Oral B", price: 25, category: "Higiene", desc: "Cepillo dental para pacientes.", image: cepilloOralBImage },
+  { id: 23, name: "Cera de ortodoncia", price: 14, category: "Ortodoncia", desc: "Cera de alivio para brackets.", image: ceraDeOrtodonciaImage },
+  { id: 24, name: "Cera para modelar", price: 69, category: "Laboratorio", desc: "Cera para trabajos de laboratorio.", image: ceraParaModelarImage },
+  { id: 25, name: "Charola de plastico", price: 37, category: "Instrumental", desc: "Charola organizadora para instrumental.", image: charolaDePlasticoImage },
+  { id: 26, name: "Cinta testigo", price: 75, category: "Esterilización", desc: "Cinta autoclave indicador de esterilización.", image: cintaTestigoImage },
+  { id: 27, name: "Clinpro", price: 58, category: "Preventiva", desc: "Barniz fluorado profesional.", image: clinproImage },
+  { id: 28, name: "Conformador de rodillo", price: 14, category: "Laboratorio", desc: "Conformador para rodetes de cera.", image: conformadorDeRodilloImage },
+  { id: 29, name: "Coronas anteriores", price: 84, category: "Restaurativa", desc: "Coronas temporales anteriores.", image: coronasAnterioresImage },
+  { id: 30, name: "Cubrebocas Anelsam", price: 58, category: "Desechables", desc: "Cubrebocas plisado tricapa.", image: cubrebocasAnelsamImage },
   { id: 31, name: "Cubrebocas Unimask 3", price: 110, category: "Desechables", desc: "Caja de cubrebocas Unimask alta protección.", image: cubrebocasUnimaskImage },
   { id: 32, name: "Cubrebocas Unimask 4", price: 110, category: "Desechables", desc: "Cubrebocas profesional alta calidad.", image: cubrebocasUnimaskImage },
-  { id: 33, name: "Cucharillas parciales", price: 36, category: "Impresión", desc: "Cucharillas metálicas para impresión.", image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=700" },
-  { id: 34, name: "Detector de caries", price: 165, category: "Restaurativa", desc: "Revelador de caries profesional.", image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=700" },
-  { id: 35, name: "Dique Maxsafe 5x5 verde", price: 275, category: "Endodoncia", desc: "Dique de hule látex verde.", image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=700" },
-  { id: 36, name: "Dique Maxsafe 6x6 rosa", price: 290, category: "Endodoncia", desc: "Dique de hule látex rosa.", image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=700" },
-  { id: 37, name: "Dique Nictone 5x5", price: 310, category: "Endodoncia", desc: "Dique de alta resistencia.", image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&q=80&w=700" },
+  { id: 33, name: "Cucharillas parciales", price: 36, category: "Impresión", desc: "Cucharillas metálicas para impresión.", image: cucharillasParcialesImage },
+  { id: 34, name: "Detector de caries", price: 165, category: "Restaurativa", desc: "Revelador de caries profesional.", image: detectorDeCariesImage },
+  { id: 35, name: "Dique Maxsafe 5x5 verde", price: 275, category: "Endodoncia", desc: "Dique de hule látex verde.", image: diqueMaxsafe5x5VerdeImage },
+  { id: 36, name: "Dique Maxsafe 6x6 rosa", price: 290, category: "Endodoncia", desc: "Dique de hule látex rosa.", image: diqueMaxsafe6x6RosaImage },
+  { id: 37, name: "Dique Nictone 5x5", price: 310, category: "Endodoncia", desc: "Dique de alta resistencia.", image: diqueNictone5x5Image },
   { id: 38, name: "Disco de carburo", price: 5, category: "Laboratorio", desc: "Disco para corte de materiales.", image: "https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&q=80&w=700" },
   { id: 39, name: "Discos Shofu", price: 70, category: "Laboratorio", desc: "Discos de pulido y acabado.", image: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&q=80&w=700" },
   { id: 40, name: "Dowel pin rojo o verde", price: 3.5, category: "Laboratorio", desc: "Pines metálicos para modelos de trabajo.", image: "https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&q=80&w=700" },
@@ -164,6 +191,8 @@ const products = [
   { id: 143, name: "Eyectores Borgatta", price: 100, category: "Desechables", desc: "Eyectores de saliva Borgatta.", image: eyectoresBorgattaImage },
   { id: 144, name: "Eyectores Sencillos", price: 60, category: "Desechables", desc: "Eyectores de saliva económicos.", image: eyectoresSencillosImage },
   { id: 145, name: "Eyectores Azules", price: 80, category: "Desechables", desc: "Eyectores de saliva color azul.", image: eyectoresAzulesImage },
+  { id: 146, name: "Gasas", price: 28, category: "Desechables", desc: "Gasas absorbentes para procedimientos.", image: gasasImage },
+  { id: 147, name: "Guantes de Nitrilo", price: 140, category: "Desechables", desc: "Caja con 100 piezas. Selecciona tu talla.", image: guantesDeNitriloImage, sizes: ["XS", "X", "M"] },
 ];
 
 function App() {
@@ -321,7 +350,7 @@ function App() {
 
       if (text.includes("guante")) {
         response =
-          "Contamos con guantes de nitrilo normales a $120/$140 MXN (tallas XS, X, M) y metálicos a $138 MXN.";
+          "Contamos con guantes de nitrilo a $140 MXN (tallas XS, X, M).";
       }
 
       if (
